@@ -23,18 +23,16 @@ export class UpdateRecordComponent implements OnInit {
     name: new FormControl('')
   });
 
-
-
   ngOnInit(): void {
     // this.productForm.get('name').patchValue(this.data.row.name);
-    this.productForm.patchValue(this.data.row.name) 
-    console.log(this.productForm);
-       
+    this.productForm.patchValue(this.data.row.name)        
   }
   
   onSubmit() {
-    
     this.matDailogRef.close(this.student)
   }
 
+  closed() {
+    this.matDailogRef.close()
+  }
 }

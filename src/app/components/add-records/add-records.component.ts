@@ -14,9 +14,13 @@ export class AddRecordsComponent {
     qualification: null,
   }
   constructor(private matDailogRef: MatDialogRef<AddRecordsComponent>) {
-
   }
+
   onSubmit() {
     this.matDailogRef.close(this.student)
+  }
+
+  closed() {
+    this.matDailogRef.close();
   }
 }

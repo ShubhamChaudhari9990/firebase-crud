@@ -38,7 +38,6 @@ export class HomeComponent implements OnInit {
     this.afs.collection("student").valueChanges({ idField: 'id' }).subscribe((res) => {
       this.dataSource = res
       this.data = this.dataSource.length;
-      // console.log(this.dataSource);
       this.dataSource = new MatTableDataSource(this.dataSource);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -51,12 +50,15 @@ export class HomeComponent implements OnInit {
   }
 
   addRecord(): void {
-    const ref = this.dailog.open(AddRecordsComponent);
+    const ref = this.dailog.open(AddRecordsComponent, {
+      width:'400px'
+    });
     ref.afterClosed().subscribe(res => {
       if (res) {
         this.afs.collection("student").add(res)
       }
     });
+    ref.disableClose = true;
   }
 
   delete(row: any) {
@@ -69,7 +71,10 @@ export class HomeComponent implements OnInit {
       width:'400px'
     });    
     updateRef.afterClosed().subscribe(res => {
-      this.afs.collection("student").doc(row.id).update(res)
+      if(res) {
+        this.afs.collection("student").doc(row.id).update(res)
+      }
     })
+    updateRef.disableClose = true;
   }
 }
