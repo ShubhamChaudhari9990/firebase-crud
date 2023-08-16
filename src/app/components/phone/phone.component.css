@@ -1,0 +1,25 @@
+.select{
+    display: inline-block;
+}
+.capcha{
+    margin-top: 10px;
+    text-align: -webkit-center;
+}
+mat-card{
+    /* display: block; */
+    margin: auto;
+    max-width: 500px;
+    text-align: center;
+    align-items: center;
+    /* opacity: 5; */
+    background-color: rgba(245, 245, 245, 0.4);
+}
+:host {
+    display: flex;
+    background-repeat: no-repeat;
+    background-image: url('../../../assets/login.jpg');
+    height: 100%;
+}
+input{
+    width: 100%;
+}

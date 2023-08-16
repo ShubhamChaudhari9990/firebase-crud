@@ -1,0 +1,37 @@
+:host {
+    display: flex;
+    justify-content: center;
+    background-repeat: no-repeat;
+    /* margin: 200px 0px;*/
+    background-image: url('../../../assets/login.jpg');
+    height: 100%;
+}
+.mat{
+    margin: auto;
+    max-width: 400px;
+    border-radius: 20px;
+    /* max-height: 550px; */
+    /* background-color: rgba(245, 245, 245, 0.4); */
+}
+.row,a{
+    margin: auto;
+}
+
+.input{
+    width: 100%;
+}
+.title{
+    text-align: center;
+    font-size: 30px;
+    margin: 15px;
+}
+button.btn2{
+    float: right;
+}
+span{
+    display: block;
+    margin-top: 20px;
+}
+/* img:hover{
+    font-size: 100px;
+} */

@@ -1,0 +1,33 @@
+<div>
+    <h3>Address Form</h3>
+    <form class="formwidth" (ngSubmit)="onSubmit()" #myForm="ngForm">
+        <p>
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput placeholder=" Name" id="name" [(ngModel)]="student.name" name="name">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-label>Address</mat-label>
+                <textarea matInput placeholder="address" id="address" [(ngModel)]="student.address"
+                    name="address"></textarea>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-label>Contact</mat-label>
+                <input matInput placeholder="contact" id="contact" [(ngModel)]="student.contact" name="contact">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <input matInput placeholder="qualification" id="qualification" [(ngModel)]="student.qualification"
+                    name="qualification">
+            </mat-form-field>
+        </p>
+        <p>
+            <button type="submit" mat-raised-button color="primary">Submit</button>
+        </p>
+    </form>
+</div>

@@ -1,0 +1,49 @@
+<mat-card>
+    <mat-card-title>
+        <h1>Phone Number Authentication</h1>
+    </mat-card-title>
+    <mat-card-content>
+        <form (ngSubmit)="sendVerificationCode()">
+            <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="select">
+                            <mat-label for="selectedCountry">Country Code</mat-label>
+                            <mat-select required [(value)]="selectedCountry">
+                                <mat-option>select Country code--</mat-option>
+                                <mat-option *ngFor="let country of countries" [value]="country.phoneCode">
+                                    {{country.name}} ({{country.phoneCode}})
+                                </mat-option>
+                            </mat-select>
+                            <!-- <mat-error *ngIf="countryControl.hasError('required')">Please choose Country
+                                Code</mat-error> -->
+                            <!-- <mat-hint>{{countryControl.value?.name}}</mat-hint> -->
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <mat-label for="phoneNumber">Phone Number</mat-label>
+                            <input matInput type="text" [(ngModel)]="phoneNumber" placeholder="Enter phone number"
+                                name="phoneNumber">
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+            <button mat-raised-button color="warn">Send Verification Code</button>
+
+            <div class="capcha" id="recaptcha-container"></div>
+
+            <div *ngIf="verificationCodeSend">
+                <h2>Code Verification</h2>
+                <mat-form-field>
+                    <mat-label>Verification Code</mat-label>
+                    <input matInput type="text" [(ngModel)]="verificationCode" placeholder="Enter verification code"
+                        name="verificationCode" class="verification">
+                </mat-form-field>
+                <div class="button">
+                    <button mat-raised-button color="primary" (click)="verifyCode()">Verify Code</button>
+                </div>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

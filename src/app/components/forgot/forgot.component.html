@@ -1,0 +1,19 @@
+<mat-card class="mat">
+    <mat-card-title class="title">Forgot Password</mat-card-title>
+    <mat-card-content>
+        <form (ngSubmit)="forgotPassword()">
+            <p>
+                <mat-form-field class="input">
+                    <mat-label>Email</mat-label>
+                    <input type="text" matInput placeholder="Email" [(ngModel)]="email" name="email">
+                </mat-form-field>
+            </p>
+
+            <div class="button">
+                <button type="submit" color="primary" mat-raised-button>Send Link</button>
+            </div>
+            <span> Back to <a routerLink='/login'>LOGIN</a></span>
+
+        </form>
+    </mat-card-content>
+</mat-card>

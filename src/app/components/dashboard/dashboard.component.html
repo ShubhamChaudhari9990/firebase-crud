@@ -1,0 +1,26 @@
+<!-- <mat-card>
+    <mat-card-title>DashBoard</mat-card-title>
+    <mat-card-content>
+        <div class="button">
+            <button type="submit" color="primary" mat-raised-button (click)="logout()">LogOut</button>
+        </div>
+        <div *ngIf="afa.authState | async as user">
+            <img src="{{user.photoURL}}" alt="img">
+            {{user.displayName}}
+        </div>
+    </mat-card-content>
+</mat-card> -->
+<mat-toolbar color="primary">
+
+    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"> -->
+        <img *ngIf="afa.authState | async as user" src="{{user.photoURL}}" alt="">
+       <!-- </mat-icon> -->
+    <div *ngIf="afa.authState | async as user">
+        <span>Welcome {{user.displayName || user.email || user.phoneNumber}}</span>
+    </div>
+    <span class="spacer"></span>
+
+    <button mat-icon-button class="example-icon favorite-icon" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+    </button>
+</mat-toolbar>

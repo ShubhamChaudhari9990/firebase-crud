@@ -1,0 +1,30 @@
+.mat{
+    margin: auto;
+    min-width: 400px;
+    max-width: 500px;
+    text-align: center;
+    align-items: center;
+    background-color: rgba(245, 245, 245, 0.4);
+}
+:host {
+    display: flex;
+    background-repeat: no-repeat;
+    background-image: url('../../../assets/login.jpg');
+    height: 100%;
+}
+.input{
+    width: 100%;
+}
+.title{
+    margin: 15px;
+}
+.button{
+    margin: 15px;
+}
+a{
+    color: red;
+    font-size: larger;
+}
+mat-card-content{
+    width: 100%;
+}

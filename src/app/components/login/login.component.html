@@ -1,0 +1,66 @@
+<mat-card class="mat">
+    <mat-card-title class="title">Login Page</mat-card-title>
+    <mat-card-content>
+        <form (ngSubmit)="login()">
+            <p>
+                <mat-form-field class="input">
+                    <mat-label for="emal">Email</mat-label>
+                    <input type="text" matInput placeholder="Email" [(ngModel)]="email" name="email">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field class="input">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput placeholder="Password" [(ngModel)]="password" name="password">
+                </mat-form-field>
+            </p>
+
+            <div>
+                <button class="btn1" mat-raised-button type="submit" color="primary">Login</button>
+                <button class="btn2" mat-raised-button color="accent" routerLink='/forgot'>Forgot Password</button>
+            </div>
+            <span> If You don't have a account yet please <a routerLink='/register'>REGISTER</a></span>
+            
+
+            <hr>
+            <div class="row mt-3">
+                <a (click)="signInWithGoogle()" style="text-decoration: none;cursor: pointer;">
+                    <div class="card shadow text-center">
+                        <div class="card-body">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu-eslJQ6txuLxpbjFtkzMxU5_zVPGoQ_-urCSknw&s"
+                                alt="" height="24px" width="24px">
+                        </div>
+                    </div>
+                </a>
+                <a (click)="signInWithFacebook()" style="text-decoration: none;cursor: pointer;">
+                    <div class="card shadow text-center">
+                        <div class="card-body">
+                            <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png"
+                                alt="" height="24px" width="24px">
+                        </div>
+                    </div>
+                </a>
+                <a (click)="signInWithGithub()" style="text-decoration: none;cursor: pointer;">
+                    <div class="card shadow text-center">
+                        <div class="card-body">
+                            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                                alt="" height="24px" width="24px">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <hr>
+            <div class="row">
+                <a routerLink="/phone" style="text-decoration: none;cursor: pointer;">
+                    <div class="card shadow text-center">
+                        <div class="card-body">
+                            <img src="https://img.freepik.com/free-icon/auricular-phone_318-1028.jpg"
+                                alt="" height="24px" width="24px">Phone Number
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
