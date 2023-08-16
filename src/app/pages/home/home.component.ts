@@ -65,7 +65,8 @@ export class HomeComponent implements OnInit {
 
   update(row: any) {
     const updateRef = this.dailog.open(UpdateRecordComponent, {
-      data: { row }
+      data: { row },
+      width:'400px'
     });    
     updateRef.afterClosed().subscribe(res => {
       this.afs.collection("student").doc(row.id).update(res)

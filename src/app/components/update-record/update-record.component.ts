@@ -10,10 +10,10 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class UpdateRecordComponent implements OnInit {
 
   student = {
-    name: null,
-    address: null,
-    contact: null,
-    qualification: null,
+    name: this.data.row.name,
+    address: this.data.row.address,
+    contact: this.data.row.contact,
+    qualification: this.data.row.qualification,
   }
 
   constructor(private matDailogRef: MatDialogRef<UpdateRecordComponent>,@Inject(MAT_DIALOG_DATA) public data: any) { 
@@ -27,7 +27,9 @@ export class UpdateRecordComponent implements OnInit {
 
   ngOnInit(): void {
     // this.productForm.get('name').patchValue(this.data.row.name);
-    this.productForm.patchValue(this.data.row.name)    
+    this.productForm.patchValue(this.data.row.name) 
+    console.log(this.productForm);
+       
   }
   
   onSubmit() {
