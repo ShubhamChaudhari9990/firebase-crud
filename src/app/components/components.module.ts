@@ -19,6 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { StorageComponent } from './storage/storage.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     DashboardComponent,
     ForgotComponent,
     VerifyEmailComponent,
-    PhoneComponent
+    PhoneComponent,
+    StorageComponent
   ],
   imports: [
     CommonModule,
