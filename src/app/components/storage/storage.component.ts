@@ -48,29 +48,29 @@ export class StorageComponent {
     });
   }
 
-  downloadImage(): void {
-    // const imagePath = 'documents/img.jpg';
-    const storageRef = this.storage.storage.ref();
+  async downloadImage() {
+    const filePath = 'documents/img.jpg';
+    const ref = this.storage.ref(filePath);
 
-    storageRef.child('documents/img.jpg').getDownloadURL()
-      .then((url) => {
-        debugger
-        var xhr = new XMLHttpRequest();
-        xhr.responseType = 'blob';
-        // xhr.onload = (event) => {
-        //   var blob = xhr.response;
-        // };
-        xhr.open('GET', url);
-        xhr.send();
-      })
+    try {
+      const url = await ref.getDownloadURL().toPromise();
+      this.triggerDownload(url);
+    } catch (error) {
+      console.error('Error downloading image:', error);
+    }
+  }
 
-    // ref.getDownloadURL().subscribe((url) => {
-    //   const link = document.createElement('a');
-    //   link.href = url;
-    //   // link.target = '_blank'; // Open in a new tab
-    //   link.download = 'downloaded-image.jpg'; // Specify the desired filename
-    //   link.click();
-      
-    // });
+  private triggerDownload(url: string) {
+    const xhr = new XMLHttpRequest();
+    xhr.responseType = 'blob';
+    xhr.onload = (event) => {
+      const blob = xhr.response;
+      const a = document.createElement('a');
+      a.href = window.URL.createObjectURL(blob);
+      a.download = 'downloaded_image.jpg';
+      a.click();
+    };
+    xhr.open('GET', url);
+    xhr.send();
   }
 }
