@@ -1,4 +1,4 @@
-<input type="file" (change)="onFileSelect($event)">
-<button type="submit" (click)="upload()">upload</button>
+<input type="file" (change)="onFileSelect($event)" accept="image/*">
+<button *ngIf="selectedFile" type="submit" (click)="upload()">upload</button>
 <br><br>
 <button (click)="downloadImage()">Download File</button>

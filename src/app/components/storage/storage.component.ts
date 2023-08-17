@@ -22,6 +22,7 @@ export class StorageComponent {
       this.uploadImage(this.selectedFile)
         .subscribe((url: any) => {
           console.log('Image uploaded:', url);
+          alert("Image upload successfully");
         });
     }
   }
@@ -29,14 +30,8 @@ export class StorageComponent {
   uploadImage(file: File): Observable<string> {
     const filePath = `documents/img.jpg`;
     const storageRef = this.storage.ref(filePath);
-
     const uploadTask = this.storage.upload(filePath, file);
-
     return new Observable(observer => {
-      // uploadTask.percentageChanges().subscribe(percentage => {
-      //   observer.next(`${percentage!.toFixed(2)}%`);
-      // });
-
       uploadTask.snapshotChanges().subscribe(snapshot => {
         if (snapshot!.state === 'success') {
           storageRef.getDownloadURL().subscribe(url => {
@@ -51,7 +46,6 @@ export class StorageComponent {
   async downloadImage() {
     const filePath = 'documents/img.jpg';
     const ref = this.storage.ref(filePath);
-
     try {
       const url = await ref.getDownloadURL().toPromise();
       this.triggerDownload(url);
@@ -69,6 +63,7 @@ export class StorageComponent {
       a.href = window.URL.createObjectURL(blob);
       a.download = 'downloaded_image.jpg';
       a.click();
+      alert("Image download successfully");
     };
     xhr.open('GET', url);
     xhr.send();
