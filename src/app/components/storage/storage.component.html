@@ -1,4 +1,8 @@
-<input type="file" (change)="onFileSelect($event)" accept="image/*">
-<button *ngIf="selectedFile" type="submit" (click)="upload()">upload</button>
-<br><br>
-<button (click)="downloadImage()">Download File</button>
+<div [style.backgroundColor]="selectedColor" style="height: 100vh;">
+    <input type="file" (change)="onFileSelect($event)" accept="image/*">
+    <button *ngIf="selectedFile" type="submit" (click)="upload()">upload</button>
+    <br><br>
+    <button (click)="downloadImage()">Download File</button><br><br>
+    <label for="colorPicker">Choose a background color:</label>
+    <input type="color" (input)="changeBackgroundColor($event)">
+</div>

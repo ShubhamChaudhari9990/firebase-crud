@@ -10,8 +10,13 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 export class StorageComponent {
 
   selectedFile!: File;
+  selectedColor = '#ffffff';
 
   constructor(public storage: AngularFireStorage) { }
+
+  changeBackgroundColor(event: any) {
+    this.selectedColor = event.target.value;
+  }
 
   onFileSelect(event: any) {
     this.selectedFile = event.target.files[0];
