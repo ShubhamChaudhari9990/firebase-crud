@@ -8,6 +8,7 @@ import { ForgotComponent } from 'src/app/components/forgot/forgot.component';
 import { VerifyEmailComponent } from 'src/app/components/verify-email/verify-email.component';
 import { PhoneComponent } from 'src/app/components/phone/phone.component';
 import { AuthGuard } from 'src/app/auth.guard';
+import { StorageComponent } from 'src/app/components/storage/storage.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'forgot', component: ForgotComponent },
   { path: 'verify-email', component: VerifyEmailComponent },
   { path: 'phone', component: PhoneComponent },
+  { path: 'upload', component: StorageComponent },
 ];
 
 @NgModule({
